@@ -1,0 +1,84 @@
+.settings-component {
+  display: flex;
+  align-items: center;
+  &__difficulty {
+    position: relative;
+  }
+  &__difficulty-description {
+    margin-right: 15px;
+  }
+  &__difficulty-menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    min-width: 7rem;
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    transition: 1s;
+    transform-style: flat;
+    &_visible {
+      display: block;
+    }
+  }
+  &__difficulty-header {
+    min-width: 90px;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    &:hover {
+      color: #fff;
+      background-color: #86b7fe;
+      border-color: #86b7fe;
+    }
+    &:focus {
+      color: #fff;
+      background-color: #86b7fe;
+      border-color: #86b7fe;
+      box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
+    }
+  }
+  &__difficulty-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    &:hover, &:focus {
+      color: #1e2125;
+      background-color: #e9ecef;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import CardsList from './components/cardsList/CardsList';
 import ListHeader from './components/listHeader/ListHeader';
 import iconsNames from './icons.json';
 import './App.css';
+import SettingsComponent from './components/settingsComponent/SettingsComponent';
 
 function App() {
   const [cardIds, setCardIds] = useState([])
@@ -10,6 +11,7 @@ function App() {
   const [ended, setEnded] = useState(false)
   const [gameMoves, setGameMoves] = useState(0)
   const [resetCards, setResetCards] = useState(false)
+  const [difficulty, setDifficulty] = useState(3)
 
   const changeCardFlipped = (idx, bool) => {
     setCardIds(prev => {
@@ -47,8 +49,7 @@ function App() {
   }
 
   const resetCardIds = () => {
-    const randomArray = getRandomDoubledArray(32, 3)
-    console.log(randomArray)
+    const randomArray = getRandomDoubledArray(32, difficulty)
 
     setCardIds(() => {
       const arr = []
@@ -67,7 +68,7 @@ function App() {
 
   useEffect(() => {
     resetCardIds()
-  }, [])
+  }, [difficulty])
 
   useEffect(() => {
     if (flippedCards > 1) {
@@ -132,12 +133,18 @@ function App() {
     resetCardIds()
   }
 
+  const difficultyChange = (level) => {
+    resetGame()
+    setDifficulty(level)
+  }
+
   return (
     <div className="App">
       <div className="container">
         <div className='wrapper'>
+          <SettingsComponent difficultyChange={difficultyChange} />
           <ListHeader ended={ended} gameMoves={gameMoves} resetGame={resetGame}/>
-          <CardsList cardIds={cardIds} cardClicked={cardClicked} resetCards={resetCards}/>
+          <CardsList cardIds={cardIds} cardClicked={cardClicked} resetCards={resetCards} difficulty={difficulty}/>
         </div>
       </div>
     </div>
