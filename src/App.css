@@ -3,17 +3,14 @@
   width: 500px;
 }
 .theme_summer {
-  --prim-color: #FFAB24;
-  --sec-color: #FFCA72;
-  --shadow-color: rgba(255, 181, 61, 0.25);
+  --prim-color: #6FC8C8;
+  --sec-color: #A6DDDD;
+  --shadow-color: rgba(111, 200, 200, 0.25);
 }
 .theme_duotone {
   --prim-color: #2b4099;
-  --sec-color: #364FBF;
+  --sec-color: #445DCA;
   --shadow-color: rgba(26, 38, 91, 0.25); 
-  /* --prim-color: #0d6efd;
-  --sec-color: #86b7fe;
-  --shadow-color: rgba(13, 110, 253, 0.25); */
 }
 @media (max-width: 768px) {
   .wrapper {
