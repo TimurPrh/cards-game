@@ -28,8 +28,7 @@
     left: 0;
   }
   &__front {
-    background-color: #86b7fe; 
-    // background-color: lightblue;
+    background-color: var(--sec-color); 
     z-index: 2;
   }
   &__back {
@@ -40,8 +39,8 @@
     align-items: center;
     img {
       display: block;
-      width: 50%;
-      height: 50%;
+      width: 66%;
+      height: 66%;
     }
   }
 }

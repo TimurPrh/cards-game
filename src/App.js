@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import CardsList from './components/cardsList/CardsList';
 import ListHeader from './components/listHeader/ListHeader';
 import iconsNames from './icons.json';
-import './App.css';
 import SettingsComponent from './components/settingsComponent/SettingsComponent';
+import './App.css';
 
 function App() {
   const [cardIds, setCardIds] = useState([])
@@ -12,6 +12,7 @@ function App() {
   const [gameMoves, setGameMoves] = useState(0)
   const [resetCards, setResetCards] = useState(false)
   const [difficulty, setDifficulty] = useState(3)
+  const [theme, setTheme] = useState('summer')
 
   const changeCardFlipped = (idx, bool) => {
     setCardIds(prev => {
@@ -49,7 +50,7 @@ function App() {
   }
 
   const resetCardIds = () => {
-    const randomArray = getRandomDoubledArray(32, difficulty)
+    const randomArray = getRandomDoubledArray(iconsNames[theme].length, difficulty)
 
     setCardIds(() => {
       const arr = []
@@ -57,7 +58,7 @@ function App() {
         arr.push({
           id: i,
           gameId: randomArray[i],
-          img: iconsNames[randomArray[i]],
+          img: iconsNames[theme][randomArray[i]],
           isFlipped: false,
           solved: false
         })
@@ -68,7 +69,7 @@ function App() {
 
   useEffect(() => {
     resetCardIds()
-  }, [difficulty])
+  }, [difficulty, theme])
 
   useEffect(() => {
     if (flippedCards > 1) {
@@ -138,13 +139,18 @@ function App() {
     setDifficulty(level)
   }
 
+  const themeChange = (theme) => {
+    resetGame()
+    setTheme(theme)
+  }
+
   return (
     <div className="App">
       <div className="container">
-        <div className='wrapper'>
-          <SettingsComponent difficultyChange={difficultyChange} />
+        <div className={`wrapper theme_${theme}`}>
+          <SettingsComponent difficultyChange={difficultyChange} themeChange={themeChange}/>
           <ListHeader ended={ended} gameMoves={gameMoves} resetGame={resetGame}/>
-          <CardsList cardIds={cardIds} cardClicked={cardClicked} resetCards={resetCards} difficulty={difficulty}/>
+          <CardsList cardIds={cardIds} cardClicked={cardClicked} resetCards={resetCards} difficulty={difficulty} theme={theme}/>
         </div>
       </div>
     </div>

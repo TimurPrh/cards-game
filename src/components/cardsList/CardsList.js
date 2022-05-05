@@ -2,7 +2,7 @@ import React from 'react';
 import FlipperCard from '../flipperCard/FlipperCard';
 import './cardsList.scss'
 
-const CardsList = ({cardIds, cardClicked, resetCards, difficulty}) => {
+const CardsList = ({cardIds, cardClicked, resetCards, difficulty, theme}) => {
   return (
     <div 
       className="cards-list"
@@ -18,7 +18,7 @@ const CardsList = ({cardIds, cardClicked, resetCards, difficulty}) => {
             id={card.id} 
             cardClicked={cardClicked}
             flip={card.isFlipped}
-            img={`icons/${card.img}.svg`}
+            img={`icons/${theme}/${card.img}.svg`}
             underFlip={resetCards}
           />
         </div>
