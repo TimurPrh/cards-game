@@ -30,18 +30,18 @@ const ListHeader = ({ended, gameMoves, resetGame}) => {
       <div className='list-header__moves'>
         {ended ?
           <div>
-            Игра окончена за {getMoves(gameMoves)}
+            Game completed in {gameMoves} moves
           </div>
           :
           <div>
-            Ходов: {gameMoves}
+            Moves: {gameMoves}
           </div>
         }
       </div>
       <button 
         onClick={resetGame}
         className='list-header__reset'
-        >Сброс</button>
+        >Reset</button>
     </div>
   );
 };

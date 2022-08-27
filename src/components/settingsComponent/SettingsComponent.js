@@ -51,7 +51,7 @@ const SettingsComponent = ({difficultyChange, themeChange}) => {
     <div className='settings-component'>
       <div className='settings-component__item' ref={difficultyRef}>
         <div className="settings-component__option-description">
-          Уровень сложности:
+          Difficulty:
         </div>
         <div className="settings-component__option">
           <button 
@@ -81,7 +81,7 @@ const SettingsComponent = ({difficultyChange, themeChange}) => {
       </div>
       <div className='settings-component__item' ref={themeRef}>
         <div className="settings-component__option-description">
-          Тема:
+          Theme:
         </div>
         <div className="settings-component__option">
           <button 
